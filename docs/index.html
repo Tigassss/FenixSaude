@@ -1277,6 +1277,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   }
 });
 
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
 
 function enviarWpp() {
   const nome = document.getElementById('nome').value;
