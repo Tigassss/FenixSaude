@@ -21,9 +21,6 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-  section {
-  scroll-margin-top: 90px;
-}
 
 body {
   font-family: 'Jost', sans-serif;
@@ -1259,20 +1256,27 @@ const obs = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-document.querySelectorAll('nav a[href^="#"], .btn-primary[href^="#"], .btn-outline[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (!target) return;
-
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.onclick = function(e) {
     e.preventDefault();
 
-    target.scrollIntoView({
-      behavior: 'smooth'
+    const target = document.querySelector(this.hash);
+    if (!target) return;
+
+    const headerOffset = document.getElementById('header').offsetHeight;
+
+    const elementPosition = target.offsetTop;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
     });
 
     document.getElementById('nav').classList.remove('open');
-  });
+  }
 });
+
 
 function enviarWpp() {
   const nome = document.getElementById('nome').value;
