@@ -1269,13 +1269,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (!target) return;
 
     const headerOffset = 80;
-    const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - headerOffset;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+    //  força sair da posição atual (evita TP quando já está na seção)
+    window.scrollBy({ top: -1, behavior: 'instant' });
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }, 10);
 
     document.getElementById('nav').classList.remove('open');
   });
