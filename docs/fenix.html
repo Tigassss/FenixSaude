@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fênix Saúde & Beleza — Clínica Especializada em Gravataí</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ouro: #B8996A;
+  --ouro-claro: #D4B896;
+  --ouro-escuro: #8B7245;
+  --creme: #FAF8F4;
+  --creme2: #F2EEE7;
+  --marfim: #FFFDF9;
+  --preto: #1A1714;
+  --cinza: #6B6560;
+  --cinza-claro: #C5BFB8;
+  --verde: #2B6B4A;
+  --verde-claro: #E8F3ED;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--marfim);
+  color: var(--preto);
+  overflow-x: hidden;
+}
+
+/* ══════════════ HEADER ══════════════ */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  height: 80px;
+  background: rgba(250,248,244,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(184,153,106,0.2);
+  transition: box-shadow 0.3s;
+}
+
+header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+
+.logo img { height: 60px; object-fit: contain; }
+
+nav { display: flex; align-items: center; gap: 36px; }
+
+nav a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cinza);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--ouro);
+  transition: width 0.3s;
+}
+
+nav a:hover { color: var(--preto); }
+nav a:hover::after { width: 100%; }
+
+.btn-agendar {
+  background: var(--ouro);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-agendar:hover { background: var(--ouro-escuro); transform: translateY(-1px); }
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--preto); transition: 0.3s; }
+
+/* ══════════════ HERO ══════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 6% 80px 8%;
+  background: var(--creme);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left::after {
+  content: '';
+  position: absolute;
+  top: 0; right: -60px;
+  width: 120px;
+  height: 100%;
+  background: var(--creme);
+  transform: skewX(-4deg);
+  z-index: 1;
+}
+
+.hero-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 30px; height: 1px;
+  background: var(--ouro);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 5.5vw, 78px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--preto);
+  margin-bottom: 8px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--ouro);
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 300;
+  color: var(--cinza);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.hero-desc {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--cinza);
+  max-width: 420px;
+  margin-bottom: 44px;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--ouro);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover { background: var(--ouro-escuro); transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1px solid var(--ouro);
+  color: var(--ouro);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover { background: var(--ouro); color: white; }
+
+.hero-badges {
+  display: flex;
+  gap: 32px;
+  margin-top: 52px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(184,153,106,0.2);
+}
+
+.hero-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ouro);
+  line-height: 1;
+}
+
+.hero-badge-txt {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cinza);
+  margin-top: 4px;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--creme) 0%, transparent 15%);
+  z-index: 1;
+}
+
+/* ══════════════ STRIP ══════════════ */
+.strip {
+  background: var(--ouro);
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.strip-item {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.strip-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+/* ══════════════ SEÇÃO GENÉRICA ══════════════ */
+.secao { padding: 110px 8%; }
+.secao-cinza { background: var(--creme); }
+.secao-creme2 { background: var(--creme2); }
+
+.label-secao {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label-secao::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--ouro);
+}
+
+.titulo-secao {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--preto);
+  margin-bottom: 16px;
+}
+
+.titulo-secao em { font-style: italic; color: var(--ouro); }
+
+.subtitulo-secao {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cinza);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.secao-header { margin-bottom: 64px; }
+.secao-header.centro { text-align: center; }
+.secao-header.centro .label-secao { justify-content: center; }
+.secao-header.centro .label-secao::before { display: none; }
+.secao-header.centro .subtitulo-secao { margin: 0 auto; }
+
+/* ══════════════ SOBRE ══════════════ */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.sobre-img-wrap { position: relative; }
+
+.sobre-img-wrap img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.sobre-badge {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  background: var(--ouro);
+  color: white;
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.sobre-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+}
+
+.sobre-badge-txt {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.sobre-texto p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--cinza);
+  margin-bottom: 20px;
+}
+
+.sobre-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.sobre-item {
+  padding: 20px;
+  border-left: 2px solid var(--ouro-claro);
+  background: var(--creme);
+}
+
+.sobre-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sobre-item p {
+  font-size: 13px;
+  color: var(--cinza);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════ ESPECIALIDADES ══════════════ */
+.esp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.esp-card {
+  background: white;
+  padding: 36px 28px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  cursor: default;
+}
+
+.esp-card:hover {
+  border-bottom-color: var(--ouro);
+  background: var(--creme);
+  transform: translateY(-4px);
+}
+
+.esp-icone {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.esp-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.esp-card p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--cinza);
+  line-height: 1.7;
+}
+
+/* ══════════════ CEO ══════════════ */
+.ceo-wrap {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ceo-img-wrap { position: relative; }
+
+.ceo-img-wrap img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.ceo-linha-ouro {
+  position: absolute;
+  top: 20px; left: -20px;
+  right: 20px; bottom: -20px;
+  border: 1px solid var(--ouro-claro);
+  z-index: -1;
+}
+
+.ceo-texto blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--preto);
+  margin-bottom: 32px;
+  position: relative;
+  padding-left: 28px;
+  border-left: 2px solid var(--ouro);
+}
+
+.ceo-texto p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cinza);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.ceo-nome {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--preto);
+  margin-top: 32px !important;
+  margin-bottom: 4px !important;
+}
+
+.ceo-cargo {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+/* ══════════════ PROFISSIONAIS ══════════════ */
+.prof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.prof-card {
+  background: white;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prof-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.prof-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter 0.4s;
+}
+
+.prof-card:hover .prof-img { filter: grayscale(0%); }
+
+.prof-info {
+  padding: 20px 20px 22px;
+  border-top: 2px solid var(--ouro-claro);
+}
+
+.prof-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.prof-info .esp-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+
+.prof-sem-foto {
+  width: 100%;
+  height: 260px;
+  background: var(--creme2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prof-sem-foto span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  color: var(--ouro-claro);
+}
+
+/* ══════════════ CONVÊNIOS ══════════════ */
+.convenios-img-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+}
+
+.convenios-img-wrap img { width: 100%; display: block; }
+
+/* ══════════════ AGENDAMENTO ══════════════ */
+.agend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.agend-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.agend-contatos { list-style: none; margin-bottom: 40px; }
+.agend-contatos li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cinza);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--creme2);
+}
+
+.agend-contatos li strong { color: var(--preto); font-weight: 500; }
+
+.mapa-wrap { border: 0; overflow: hidden; }
+.mapa-wrap iframe { width: 100%; height: 280px; border: 0; display: block; }
+
+.form-agend { display: flex; flex-direction: column; gap: 14px; }
+
+.form-agend input,
+.form-agend select,
+.form-agend textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--creme2);
+  background: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--preto);
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none;
+}
+
+.form-agend input:focus,
+.form-agend select:focus,
+.form-agend textarea:focus {
+  border-color: var(--ouro);
+}
+
+.form-agend textarea { resize: vertical; min-height: 100px; }
+
+.form-agend button {
+  background: var(--ouro);
+  color: white;
+  border: none;
+  padding: 18px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.form-agend button:hover { background: var(--ouro-escuro); transform: translateY(-1px); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* ══════════════ FOOTER ══════════════ */
+footer {
+  background: var(--preto);
+  color: white;
+  padding: 80px 8% 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo img { height: 50px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; margin-bottom: 16px; }
+
+.footer-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+footer h4 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--ouro-claro);
+  margin-bottom: 20px;
+}
+
+footer ul { list-style: none; }
+footer ul li {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+footer ul li a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer ul li a:hover { color: var(--ouro-claro); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ══════════════ WPP ══════════════ */
+.wpp {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  background: #25D366;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  text-decoration: none;
+  box-shadow: 0 6px 28px rgba(37,211,102,0.4);
+  z-index: 998;
+  animation: pulseWpp 3s infinite;
+  transition: transform 0.2s;
+}
+
+.wpp:hover { transform: scale(1.05); }
+
+.wpp svg { width: 20px; height: 20px; }
+
+/* ══════════════ REVEAL ══════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════ ANIMAÇÕES ══════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseWpp {
+  0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.4); }
+  50%       { box-shadow: 0 6px 40px rgba(37,211,102,0.65); }
+}
+
+.hero-left { animation: fadeUp 0.9s ease both; }
+.hero-right { animation: fadeUp 1.1s 0.2s ease both; }
+
+/* ══════════════ RESPONSIVE ══════════════ */
+@media (max-width: 1024px) {
+  .prof-grid { grid-template-columns: repeat(3, 1fr); }
+  .esp-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 50vh; }
+  .hero-left::after { display: none; }
+  .hero-left { padding: 110px 6% 60px; }
+  .sobre-grid { grid-template-columns: 1fr; gap: 60px; }
+  .sobre-badge { bottom: 12px; right: 12px; }
+  .ceo-wrap { grid-template-columns: 1fr; }
+  .ceo-img-wrap img { height: 400px; }
+  .prof-grid { grid-template-columns: repeat(2, 1fr); }
+  .agend-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  nav { display: none; }
+  nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: fixed;
+    top: 80px; left: 0; right: 0;
+    background: var(--marfim);
+    padding: 16px 6%;
+    border-top: 1px solid var(--creme2);
+  }
+  nav.open a { padding: 14px 0; border-bottom: 1px solid var(--creme2); width: 100%; }
+  .menu-toggle { display: flex; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 600px) {
+  .secao { padding: 80px 6%; }
+  .prof-grid { grid-template-columns: 1fr 1fr; }
+  .esp-grid { grid-template-columns: 1fr; }
+  .hero-badges { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header id="header">
+  <div class="logo">
+    <a href="#inicio"><img src="fenixsaude-removebg-preview.png" alt="Fênix Saúde e Beleza"></a>
+  </div>
+  <nav id="nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#especialidades">Especialidades</a>
+    <a href="#profissionais">Equipe</a>
+    <a href="#convenios">Convênios</a>
+    <a href="#agendamento">Contato</a>
+    <a class="btn-agendar" href="#agendamento">Agendar Consulta</a>
+  </nav>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <div class="hero-tag">Gravataí · Rio Grande do Sul</div>
+    <h1>Saúde que<br><em>transforma</em><br>vidas</h1>
+    <p class="hero-sub">Clínica Fênix Saúde & Beleza</p>
+    <p class="hero-desc">Atendimento especializado com equipe multidisciplinar, tecnologia de ponta e o cuidado humano que você merece. Sua saúde e bem-estar em mãos experientes.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#agendamento">Agendar Consulta</a>
+      <a class="btn-outline" href="#especialidades">Nossas Especialidades</a>
+    </div>
+    <div class="hero-badges">
+      <div>
+        <div class="hero-badge-num">15+</div>
+        <div class="hero-badge-txt">Especialistas</div>
+      </div>
+      <div>
+        <div class="hero-badge-num">10+</div>
+        <div class="hero-badge-txt">Convênios</div>
+      </div>
+      <div>
+        <div class="hero-badge-num">24h</div>
+        <div class="hero-badge-txt">Via WhatsApp</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="pexels-thirdman-5327579.jpg" alt="Clínica Fênix Saúde e Beleza">
+  </div>
+</section>
+
+<!-- ══════════ STRIP ══════════ -->
+<div class="strip">
+  <div class="strip-item">Psicologia</div>
+  <div class="strip-dot"></div>
+  <div class="strip-item">Neurologia</div>
+  <div class="strip-dot"></div>
+  <div class="strip-item">Endocrinologia</div>
+  <div class="strip-dot"></div>
+  <div class="strip-item">Nutrição</div>
+  <div class="strip-dot"></div>
+  <div class="strip-item">Biomedicina Estética</div>
+  <div class="strip-dot"></div>
+  <div class="strip-item">Psiquiatria</div>
+</div>
+
+<!-- ══════════ SOBRE ══════════ -->
+<section class="secao" id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-img-wrap reveal">
+      <img src="pexels-thirdman-5327579.jpg" alt="Clínica Fênix">
+      <div class="sobre-badge">
+        <span class="sobre-badge-num">+5</span>
+        <div class="sobre-badge-txt">Anos de<br>Excelência</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="label-secao">Quem somos</div>
+      <h2 class="titulo-secao">Cuidado <em>integral</em> para sua saúde</h2>
+      <br>
+      <p style="font-size:16px;font-weight:300;color:var(--cinza);line-height:1.9;margin-bottom:16px;">A Clínica Fênix Saúde & Beleza oferece atendimento especializado com profissionais qualificados em diversas áreas da saúde, unindo tecnologia, experiência e atendimento humanizado.</p>
+      <p style="font-size:16px;font-weight:300;color:var(--cinza);line-height:1.9;margin-bottom:16px;">Nossa missão é proporcionar o mais alto nível de cuidado médico e estético, com uma equipe multidisciplinar dedicada ao seu bem-estar completo em Gravataí e região.</p>
+      <div class="sobre-items">
+        <div class="sobre-item">
+          <h4>Equipe Qualificada</h4>
+          <p>Profissionais especializados e em constante atualização</p>
+        </div>
+        <div class="sobre-item">
+          <h4>Atendimento Humanizado</h4>
+          <p>Cada paciente recebe atenção individualizada</p>
+        </div>
+        <div class="sobre-item">
+          <h4>Tecnologia Avançada</h4>
+          <p>Equipamentos modernos para diagnóstico e tratamento</p>
+        </div>
+        <div class="sobre-item">
+          <h4>Múltiplos Convênios</h4>
+          <p>Aceitamos os principais planos de saúde da região</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ESPECIALIDADES ══════════ -->
+<section class="secao secao-cinza" id="especialidades">
+  <div class="secao-header centro reveal">
+    <div class="label-secao">O que oferecemos</div>
+    <h2 class="titulo-secao">Nossas <em>especialidades</em></h2>
+    <p class="subtitulo-secao">Uma clínica completa para cuidar de você e da sua família com excelência médica.</p>
+  </div>
+  <div class="esp-grid reveal">
+    <div class="esp-card">
+      <span class="esp-icone">🧠</span>
+      <h3>Psicologia</h3>
+      <p>Acompanhamento terapêutico para saúde mental, desenvolvimento pessoal e qualidade de vida.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">🫀</span>
+      <h3>Neurologia</h3>
+      <p>Diagnóstico e tratamento de doenças do sistema nervoso central e periférico.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">⚗️</span>
+      <h3>Endocrinologia</h3>
+      <p>Tratamento de disfunções hormonais, diabetes, tireoide e metabolismo.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">🥗</span>
+      <h3>Nutrição</h3>
+      <p>Orientação nutricional personalizada para saúde, emagrecimento e performance.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">✨</span>
+      <h3>Biomedicina Estética</h3>
+      <p>Procedimentos estéticos avançados com segurança e resultados naturais.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">💊</span>
+      <h3>Psiquiatria</h3>
+      <p>Avaliação e tratamento de transtornos mentais com abordagem clínica e humanizada.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">🔬</span>
+      <h3>Laser Expert</h3>
+      <p>Tratamentos a laser de última geração para pele, depilação e rejuvenescimento.</p>
+    </div>
+    <div class="esp-card">
+      <span class="esp-icone">🩺</span>
+      <h3>Clínica Geral</h3>
+      <p>Atendimento médico completo para prevenção, diagnóstico e acompanhamento de saúde.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CEO ══════════ -->
+<section class="secao">
+  <div class="ceo-wrap">
+    <div class="ceo-img-wrap reveal">
+      <img src="CEO_Isabel.png" alt="Isabel — Fundadora da Fênix Saúde e Beleza">
+      <div class="ceo-linha-ouro"></div>
+    </div>
+    <div class="ceo-texto reveal">
+      <div class="label-secao">Fundadora & CEO</div>
+      <blockquote>"Criamos a Fênix com um propósito claro: oferecer saúde de qualidade, com acolhimento e excelência, para transformar vidas."</blockquote>
+      <p>Com visão empreendedora e amor pela saúde, Isabel criou a Clínica Fênix Saúde & Beleza para reunir os melhores profissionais da região em um espaço moderno, acolhedor e humano.</p>
+      <p>Sua liderança inspira toda a equipe a ir além, sempre colocando o paciente no centro de cada decisão.</p>
+      <p class="ceo-nome">Isabel</p>
+      <p class="ceo-cargo">Fundadora & CEO · Fênix Saúde & Beleza</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROFISSIONAIS ══════════ -->
+<section class="secao secao-creme2" id="profissionais">
+  <div class="secao-header reveal">
+    <div class="label-secao">Nossos especialistas</div>
+    <h2 class="titulo-secao">Uma equipe de <em>excelência</em></h2>
+    <p class="subtitulo-secao">Profissionais dedicados e altamente qualificados para cuidar da sua saúde com atenção e competência.</p>
+  </div>
+
+  <div class="prof-grid">
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="Dr_Felipe_Farion.png" alt="Dr. Felipe Farion Watanabe">
+      <div class="prof-info">
+        <h3>Dr. Felipe Farion Watanabe</h3>
+        <div class="esp-tag">Neurologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="Dr_julio.png" alt="Dr. Júlio">
+      <div class="prof-info">
+        <h3>Dr. Júlio</h3>
+        <div class="esp-tag">Urologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="dra_raquel.png" alt="Dra. Raquel Erbice Durgante">
+      <div class="prof-info">
+        <h3>Dra. Raquel Erbice Durgante</h3>
+        <div class="esp-tag">Endocrinologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="Viviane.png" alt="Viviane Barros Tamboridegui">
+      <div class="prof-info">
+        <h3>Viviane Barros Tamboridegui</h3>
+        <div class="esp-tag">Psicologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="Liane.png" alt="Liane Hoff">
+      <div class="prof-info">
+        <h3>Liane Hoff</h3>
+        <div class="esp-tag">Psicologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>CD</span></div>
+      <div class="prof-info">
+        <h3>Cristiane Dill</h3>
+        <div class="esp-tag">Psicologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>AB</span></div>
+      <div class="prof-info">
+        <h3>Adriana Braga Alves</h3>
+        <div class="esp-tag">Psicologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>GB</span></div>
+      <div class="prof-info">
+        <h3>Graziela Barbosa Terra</h3>
+        <div class="esp-tag">Psicologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="edileine.png" alt="Edileine Schuaste">
+      <div class="prof-info">
+        <h3>Edileine Schuaste</h3>
+        <div class="esp-tag">Nutrição</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="vitoria.png" alt="Vitória Sparrenberger">
+      <div class="prof-info">
+        <h3>Vitória Sparrenberger</h3>
+        <div class="esp-tag">Nutrição</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>BB</span></div>
+      <div class="prof-info">
+        <h3>Barbara Bussato</h3>
+        <div class="esp-tag">Biomedicina Estética</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="Victoria.png" alt="Victória Tamborindegui">
+      <div class="prof-info">
+        <h3>Victória Tamborindegui</h3>
+        <div class="esp-tag">Biomedicina Estética</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <img class="prof-img" src="emeli.jpg" alt="Emeli">
+      <div class="prof-info">
+        <h3>Emeli</h3>
+        <div class="esp-tag">Recepção</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>JM</span></div>
+      <div class="prof-info">
+        <h3>Jully Machado Borba Antunes</h3>
+        <div class="esp-tag">Laser Expert</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>TD</span></div>
+      <div class="prof-info">
+        <h3>Dr. Thiago Dornelles Frohlich</h3>
+        <div class="esp-tag">Neurologia</div>
+      </div>
+    </div>
+
+    <div class="prof-card reveal">
+      <div class="prof-sem-foto"><span>LG</span></div>
+      <div class="prof-info">
+        <h3>Dr. Lucas Guilherme Vieira Pacífico</h3>
+        <div class="esp-tag">Psiquiatria</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CONVÊNIOS ══════════ -->
+<section class="secao" id="convenios">
+  <div class="secao-header centro reveal">
+    <div class="label-secao">Planos aceitos</div>
+    <h2 class="titulo-secao">Convênios que <em>atendemos</em></h2>
+    <p class="subtitulo-secao">Trabalhamos com os principais convênios da região para facilitar o seu acesso à saúde de qualidade.</p>
+  </div>
+  <div class="convenios-img-wrap reveal">
+    <img src="convênios.png" alt="Convênios aceitos na Fênix Saúde e Beleza">
+  </div>
+</section>
+
+<!-- ══════════ AGENDAMENTO ══════════ -->
+<section class="secao secao-cinza" id="agendamento">
+  <div class="secao-header reveal">
+    <div class="label-secao">Fale conosco</div>
+    <h2 class="titulo-secao">Agende sua <em>consulta</em></h2>
+  </div>
+  <div class="agend-grid">
+    <div class="reveal">
+      <h3>Informações de contato</h3>
+      <ul class="agend-contatos">
+        <li>📞 <strong>(51) 99149-6047</strong></li>
+        <li>📞 <strong>(51) 3933-6452</strong></li>
+        <li>📍 Gravataí — Rio Grande do Sul</li>
+        <li>🕐 Segunda a Sexta, 8h às 18h</li>
+      </ul>
+      <a class="btn-primary" href="https://wa.me/5551991496047" target="_blank" style="display:inline-block; margin-bottom:32px;">💬 Chamar no WhatsApp</a>
+      <div class="mapa-wrap">
+        <iframe src="https://maps.google.com/maps?q=gravatai,RS&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="form-agend">
+        <input type="text" id="nome" placeholder="Nome completo" required>
+        <input type="tel" id="tel" placeholder="Telefone / WhatsApp" required>
+        <div class="form-row">
+          <select id="esp" required>
+            <option value="">Especialidade</option>
+            <option>Psicologia</option>
+            <option>Neurologia</option>
+            <option>Endocrinologia</option>
+            <option>Nutrição</option>
+            <option>Biomedicina Estética</option>
+            <option>Psiquiatria</option>
+            <option>Laser Expert</option>
+          </select>
+          <input type="date" id="data" required>
+        </div>
+        <textarea id="obs" placeholder="Observações (opcional)"></textarea>
+        <button type="button" onclick="enviarWpp()">Solicitar Agendamento via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><img src="fenixsaude-removebg-preview.png" alt="Fênix Saúde e Beleza"></div>
+      <p class="footer-desc">Cuidando da sua saúde e bem-estar com excelência médica, tecnologia e atendimento humanizado em Gravataí.</p>
+    </div>
+    <div>
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#profissionais">Equipe</a></li>
+        <li><a href="#convenios">Convênios</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <ul>
+        <li>(51) 99149-6047</li>
+        <li>(51) 3933-6452</li>
+        <li>Gravataí — RS</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Horários</h4>
+      <ul>
+        <li>Seg — Sex</li>
+        <li>8h às 18h</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Fênix Saúde & Beleza. Todos os direitos reservados.</p>
+    <p>Gravataí — Rio Grande do Sul</p>
+  </div>
+</footer>
+
+<!-- ══════════ WPP FLUTUANTE ══════════ -->
+<a class="wpp" href="https://wa.me/5551991496047" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.107 1.523 5.83L0 24l6.341-1.492A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.017-1.375l-.36-.214-3.727.877.942-3.626-.235-.372A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+  WhatsApp
+</a>
+
+<script>
+function toggleMenu() {
+  document.getElementById('nav').classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+});
+
+function enviarWpp() {
+  const nome = document.getElementById('nome').value;
+  const tel = document.getElementById('tel').value;
+  const esp = document.getElementById('esp').value;
+  const data = document.getElementById('data').value;
+  const obs = document.getElementById('obs').value;
+  const msg = `Olá! Gostaria de agendar uma consulta:%0ANome: ${nome}%0ATelefone: ${tel}%0AEspecialidade: ${esp}%0AData desejada: ${data}%0AObservações: ${obs}`;
+  window.open(`https://wa.me/5551991496047?text=${msg}`);
+}
+</script>
+</body>
+</html>
